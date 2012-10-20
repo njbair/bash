@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # 0 black
 # 1 red
 # 2 green
@@ -34,15 +36,44 @@ cyanbg="$(tput setab 6)"
 whitebg="$(tput setab 7)"
 reset="$(tput sgr0)"
 
-if [ "`whoami`" == "root" ];
+# Special colors for each distro
+#
+# Variable assignments are as follows:
+# e: enclosure characters (brackets)
+# u: username@hostname
+# p: present working directory
+# t: terminal character ($ or #)
+# r: reset code
+# n: non-zero exit code
+
+if [ "`whoami`" == "root" ]
 then
 	e="$purple"
 	u="$red"
 	p="$white"
 else
-	e="$blue"
-	u="$cyan"
-	p="$white"
+	case "$DISTRO" in
+		"archlinux")
+			e="$blue"
+			u="$cyan"
+			p="$white"
+			;;
+		"debian")
+			e="$red"
+			u="$white"
+			p="$white"
+			;;
+		"Ubuntu")
+			e="$purple"
+			u="$yellow"
+			p="$white"
+			;;
+		*)
+			e="$white"
+			u="$green"
+			p="$blue"
+			;;
+	esac
 fi
 
 t="$white"
