@@ -46,34 +46,45 @@ reset="$(tput sgr0)"
 # r: reset code
 # n: non-zero exit code
 
+# choose color scheme based on distro
+case "$DISTRO" in
+	"arch")
+		e="$blue"
+		u="$cyan"
+		p="$white"
+		;;
+	"debian")
+		e="$red"
+		u="$white"
+		p="$white"
+		;;
+	"Ubuntu")
+		e="$purple"
+		u="$yellow"
+		p="$white"
+		;;
+	*)
+		e="$white"
+		u="$green"
+		p="$blue"
+		;;
+esac
+
+# hostname-specific colors (overrides distro-specific schemes)
+case "$HOSTNAME" in
+	"raspberrypi")
+		e="$red"
+		u="$green"
+		p="$white"
+		;;
+esac
+
+# root colors (overrides distro- and host-specific schemes)
 if [ "`whoami`" == "root" ]
 then
 	e="$purple"
 	u="$red"
 	p="$white"
-else
-	case "$DISTRO" in
-		"archlinux")
-			e="$blue"
-			u="$cyan"
-			p="$white"
-			;;
-		"debian")
-			e="$red"
-			u="$white"
-			p="$white"
-			;;
-		"Ubuntu")
-			e="$purple"
-			u="$yellow"
-			p="$white"
-			;;
-		*)
-			e="$white"
-			u="$green"
-			p="$blue"
-			;;
-	esac
 fi
 
 t="$white"
