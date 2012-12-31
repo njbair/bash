@@ -54,8 +54,8 @@ case "$DISTRO" in
 		p="$white"
 		;;
 	"debian")
-		e="$red"
-		u="$white"
+		e="$blackbold"
+		u="$red"
 		p="$white"
 		;;
 	"Ubuntu")
