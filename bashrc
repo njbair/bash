@@ -43,5 +43,5 @@ export EDITOR='vim'
 export GPG_TTY=`tty`
 
 # source user-defined settings
-[ -r ~/.bash_extra/bash_aliases ] && . ~/.bash_extra/bash_aliases
-[ -r ~/.bash_extra/bash_prompt ] && . ~/.bash_extra/bash_prompt
+[ -r ~/.bash/bash_aliases ] && . ~/.bash_extra/bash_aliases
+[ -r ~/.bash/bash_prompt ] && . ~/.bash_extra/bash_prompt
