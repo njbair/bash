@@ -99,5 +99,5 @@ n="$redbold"
 #    0  1        2            3   45
 # ret:1 [username@hostname homedir]$
 #
-#                                               0                   1          2                3        4         5
-PS1='`ret=$?; test $ret -ne 0 && echo "\[$n\]ret:$ret\[$r\] "`\[$e\][\[$r$u\]\u@\h\[$r\] \[$p\]\W\[$r$e\]]\[$r$t\]\$\[$r\] '
+#                                               0                             2                3                 5
+PS1='`ret=$?; test $ret -ne 0 && echo "\[$n\]ret:$ret\[$r\] "`\[$e\]\[$r$u\]\u@\h\[$r\] \[$p\]\W\[$r$e\] \[$r$t\]\$\[$r\] '
