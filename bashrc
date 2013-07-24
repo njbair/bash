@@ -45,3 +45,4 @@ export GPG_TTY=`tty`
 # source user-defined settings
 [ -r ~/.bash/bash_aliases ] && . ~/.bash/bash_aliases
 [ -r ~/.bash/bash_prompt ] && . ~/.bash/bash_prompt
+[ -r ~/.bash/bash-git-prompt/gitprompt.sh ] && . ~/.bash/bash-git-prompt/gitprompt.sh
