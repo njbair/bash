@@ -3,8 +3,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
-
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -32,8 +30,6 @@ case "$TERM" in
 		;;
 		esac
 
-
-
 export DISTRO=`cat /etc/*-release | grep "ID" | head -1 | awk -F = '{ print $2 }' | awk '{ print $1 }'`
 
 export PATH=$PATH:~/bin:~/.gem/ruby/1.9.1/bin
@@ -43,6 +39,8 @@ export EDITOR='vim'
 export GPG_TTY=`tty`
 
 # source user-defined settings
-[ -r ~/.bash/bash_aliases ] && . ~/.bash/bash_aliases
-[ -r ~/.bash/bash_prompt ] && . ~/.bash/bash_prompt
-[ -r ~/.bash/bash-git-prompt/gitprompt.sh ] && . ~/.bash/bash-git-prompt/gitprompt.sh
+declare -a source_files=(
+	"$HOME/.bash/bash_aliases"
+	"$HOME/.bash/bash_prompt"
+);
+for source_file in ${source_files[@]}; do source "$source_file"; done
