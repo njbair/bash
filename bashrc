@@ -38,6 +38,8 @@ export EDITOR='vim'
 # needed by the vim GPG plugin
 export GPG_TTY=`tty`
 
+export MC_SKIN="$HOME/.mc/solarized.ini"
+
 # source user-defined settings
 declare -a source_files=(
 	"$HOME/.bash/bash_aliases"
