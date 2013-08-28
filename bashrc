@@ -44,5 +44,6 @@ export MC_SKIN="$HOME/.mc/solarized.ini"
 declare -a source_files=(
 	"$HOME/.bash/bash_aliases"
 	"$HOME/.bash/bash_prompt"
+	"$HOME/dotfiles/aliases"
 );
 for source_file in ${source_files[@]}; do source "$source_file"; done
