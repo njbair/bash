@@ -30,7 +30,11 @@ case "$TERM" in
 		;;
 		esac
 
-export DISTRO=`cat /etc/*-release | grep "ID" | head -1 | awk -F = '{ print $2 }' | awk '{ print $1 }'`
+if [ -e /etc/*-release ]; then
+	export DISTRO=`cat /etc/*-release | grep "ID" | head -1 | awk -F = '{ print $2 }' | awk '{ print $1 }'`
+else
+	export DISTRO="generic"
+fi
 
 export PATH=$PATH:~/bin:~/.gem/ruby/1.9.1/bin
 export EDITOR='vim'
@@ -46,4 +50,8 @@ declare -a source_files=(
 	"$HOME/.bash/bash_prompt"
 	"$HOME/dotfiles/aliases"
 );
-for source_file in ${source_files[@]}; do source "$source_file"; done
+for source_file in ${source_files[@]}; do
+	if [ -e "$source_file" ]; then
+		source "$source_file"
+	fi
+done
