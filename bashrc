@@ -30,8 +30,8 @@ case "$TERM" in
 		;;
 		esac
 
-if [ -e /etc/*-release ]; then
-	export DISTRO=`cat /etc/*-release | grep "ID" | head -1 | awk -F = '{ print $2 }' | awk '{ print $1 }'`
+if [ -e "/etc/lsb-release" ]; then
+    export DISTRO=$(cat "/etc/lsb-release" | grep "DISTRIB_ID" | head -1 | awk -F = '{ print $2 }' | awk '{ print $1 }' | tr '[:upper:]' '[:lower:]')
 else
 	export DISTRO="generic"
 fi
@@ -55,3 +55,6 @@ for source_file in ${source_files[@]}; do
 		source "$source_file"
 	fi
 done
+
+export NVM_DIR="/home/ubuntu/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

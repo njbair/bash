@@ -58,7 +58,7 @@ case "$DISTRO" in
 		u="$red"
 		p="$white"
 		;;
-	"Ubuntu")
+	"ubuntu")
 		e="$purple"
 		u="$yellow"
 		p="$white"
