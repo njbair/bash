@@ -36,6 +36,10 @@ else
 	export DISTRO="generic"
 fi
 
+if ( command -v uname >/dev/null 2>&1 ); then
+    export UNAME="$(uname)"
+fi
+
 export PATH=$PATH:~/bin:~/.gem/ruby/1.9.1/bin
 export EDITOR='vim'
 
@@ -56,5 +60,7 @@ for source_file in ${source_files[@]}; do
 	fi
 done
 
-export NVM_DIR="/home/ubuntu/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+if [ -e "~/.nvm" ]; then
+    export NVM_DIR="~/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
