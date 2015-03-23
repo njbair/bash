@@ -64,3 +64,15 @@ if [ -e "~/.nvm" ]; then
     export NVM_DIR="~/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
+
+# mac homebrew related stuff
+if ( command -v brew >/dev/null 2>&1 ); then
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+        . `brew --prefix`/etc/bash_completion
+    fi
+
+    #if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+    #    GIT_PROMPT_THEME=Default
+    #    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+    #fi
+fi
