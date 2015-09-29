@@ -40,7 +40,7 @@ if ( command -v uname >/dev/null 2>&1 ); then
     export UNAME="$(uname)"
 fi
 
-export PATH=$PATH:~/bin:~/.gem/ruby/1.9.1/bin
+export PATH=$PATH:${HOME}/bin:${HOME}/.gem/ruby/1.9.1/bin:${HOME}/.composer/vendor/bin
 export EDITOR='vim'
 
 # needed by the vim GPG plugin
