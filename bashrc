@@ -48,6 +48,10 @@ export GPG_TTY=`tty`
 
 export MC_SKIN="$HOME/.mc/solarized.ini"
 
+command -v pygmentize >/dev/null 2>&1 &&
+    export LESS='-R' &&
+    export LESSOPEN='|~/dotfiles/lessfilter %s'
+
 # source user-defined settings
 declare -a source_files=(
 	"$HOME/.bash/bash_aliases"
